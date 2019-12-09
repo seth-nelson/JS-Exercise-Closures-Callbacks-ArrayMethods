@@ -189,8 +189,8 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
 */
 function getFullNames(runners) {
   let runArray = [];
-  runners.forEach((runners) => runArray.push(`${runners.last_name}, ${runners.first_name}`))
-  return runArray
+  runners.forEach(runner => runArray.push(`${runner.last_name}, ${runner.first_name}`))
+  return runArray;
 }
 
 /**
@@ -223,8 +223,9 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize) {
+  const newArray = runners.filter((item, index) => {return item.shirt_size === tShirtSize});
+  return newArray;
 }
 
 /**
@@ -237,9 +238,11 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  const donationTotal = runners.reduce((accumulatedValue, currentRunner) => {return accumulatedValue + currentRunner.donation}, 0);
+  return runners;
 }
+
 
 /////////////// CLOSURES ///////////////
 /////////////// CLOSURES ///////////////
@@ -259,9 +262,10 @@ function tallyUpDonations(/* CODE HERE */) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
+  let count = 0;  
+  return function() {
+    count = count++
+    return count++;
   }
   // BROKEN CODE ENDS
 }
@@ -286,8 +290,16 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(maxNum) {
+  let count = 0;
+  return function() {
+    if(count <= maxNum) {
+      return count++;
+    } else {
+    count = 1;
+    return 0;
+    }
+  }
 }
 
 /////////////// END OF CHALLENGE ///////////////
