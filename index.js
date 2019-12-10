@@ -206,8 +206,7 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-  runners.map(first_name => mapArray.push(`${first_name.toUpperCase()}`));
-  return runners;
+  return runners.map(({first_name}) => first_name.toUpperCase());
 }
 
 /**
@@ -239,8 +238,7 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @returns a number which is the sum of the donations by all runners.
 */
 function tallyUpDonations(runners) {
-  const donationTotal = runners.reduce((accumulatedValue, currentRunner) => {return accumulatedValue + currentRunner.donation}, 0);
-  return runners;
+  return donationTotal = runners.reduce((accumulatedValue, currentRunner) => {return accumulatedValue + currentRunner.donation}, 0);
 }
 
 
@@ -260,6 +258,7 @@ function tallyUpDonations(runners) {
  * counter() // should return 2
  * etc
 */
+
 function counterMaker() {
   // BROKEN CODE STARTS
   let count = 0;  
