@@ -88,8 +88,10 @@ function processLastItem(stringList, callback) {
  * should return 1000.
 */
 function processSum(numberList, callback) {
-  const num = numberList.reduce((accumulator, currentValue) => {return accumulator + currentValue}, 0);
-  return callback(num);
+  // const num = numberList.reduce((accumulator, currentValue) => {return accumulator + currentValue}, 0);
+  // return callback(num);
+
+  return callback(numberList.reduce((accumulator, currentValue) => accumulator + currentValue, 0));
 }
 
 /**
@@ -215,8 +217,7 @@ function firstNamesAllCaps(runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-  const newArray = runners.filter((item, index) => {return item.shirt_size === tShirtSize});
-  return newArray;
+  return runners.filter((item, index) => {return item.shirt_size === tShirtSize});
 }
 
 /**
